@@ -2,6 +2,7 @@ var app;
 (function (app) {
     var home;
     (function (home) {
+        "use strict";
         var HomeComponent = /** @class */ (function () {
             function HomeComponent() {
                 this.templateUrl = "src/home/home.component.html";

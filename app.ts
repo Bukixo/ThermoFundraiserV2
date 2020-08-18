@@ -1,3 +1,5 @@
-module app {
-    angular.module("App", [])
+namespace app {
+    "use strict";
+
+        angular.module("App", [])
 }
