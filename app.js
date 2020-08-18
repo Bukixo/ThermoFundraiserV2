@@ -1,3 +1,4 @@
-angular.module("App", []).controller("appController", function($scope){
-    
-});
+var app;
+(function (app) {
+    angular.module("App", []);
+})(app || (app = {}));
