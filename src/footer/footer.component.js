@@ -8,6 +8,6 @@ var app;
             }
             return FooterComponent;
         }());
-        angular.module("App").component("footerComponent", new FooterComponent());
+        angular.module("app.footer").component("footerComponent", new FooterComponent());
     })(footer = app.footer || (app.footer = {}));
 })(app || (app = {}));

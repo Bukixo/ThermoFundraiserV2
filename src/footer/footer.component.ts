@@ -5,5 +5,5 @@ namespace app.footer {
         public templateUrl: string = "src/footer/footer.component.html"
     }
 
-    angular.module("App").component("footerComponent", new FooterComponent());
+    angular.module("app.footer").component("footerComponent", new FooterComponent());
 }

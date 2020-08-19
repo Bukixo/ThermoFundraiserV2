@@ -8,6 +8,6 @@ var app;
             }
             return NavbarComponent;
         }());
-        angular.module("App").component("navbarComponent", new NavbarComponent());
+        angular.module("app.navbar").component("navbarComponent", new NavbarComponent());
     })(nav = app.nav || (app.nav = {}));
 })(app || (app = {}));
