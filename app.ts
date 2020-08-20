@@ -14,15 +14,13 @@ namespace app {
         var homeState = {
           name: 'home',
           url: '/home',
-        //   templateUrl: "src/thermostats/getThermostat/getThermostat.component.html"
-        template: "<h3>hello world!</h3>"
+          component: "getAllThermostats"
         }
       
         var dashboardState = {
           name: 'dashboard',
           url: '/dashboard',
-        //   templateUrl: "src/thermostats/getThermostat/getThermostat.component.html"
-        template: "<h3>hello dashboard!</h3>"
+          component: "getThermostat"
         }
       
         $stateProvider.state(homeState);
