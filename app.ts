@@ -19,12 +19,33 @@ namespace app {
       
         var dashboardState = {
           name: 'dashboard',
-          url: '/dashboard',
+          url: '/thermostat',
           component: "getThermostat"
         }
+
+        var editState = {
+            name: 'edit',
+            url: '/edit',
+            component: "updateThermostat"
+          }
+
+          var deleteState = {
+            name: 'delete',
+            url: '/delete',
+            component: "deleteThermostat"
+          }
+
+          var createState = {
+            name: 'create',
+            url: '/create',
+            component: "createThermostat"
+          }
       
         $stateProvider.state(homeState);
         $stateProvider.state(dashboardState);
+        $stateProvider.state(editState);
+        $stateProvider.state(deleteState);
+        $stateProvider.state(createState);
       });
 
 
