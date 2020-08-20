@@ -1,3 +1,21 @@
 div {
     height: auto;
 }
+
+.one,
+.two,
+.three {
+    height: 50px;
+}
+
+.one {
+    background: pink;
+}
+
+.two {
+    background: green;
+}
+
+.three {
+    background: blueviolet;
+}
