@@ -9,35 +9,55 @@ var app;
         "ui.router"
     ]);
     appModule.config(function ($stateProvider) {
-        var homeState = {
-            name: 'home',
-            url: '/home',
-            component: "getAllThermostats"
-        };
-        var dashboardState = {
-            name: 'dashboard',
-            url: '/thermostat',
-            component: "getThermostat"
-        };
-        var editState = {
-            name: 'edit',
-            url: '/edit',
-            component: "updateThermostat"
-        };
-        var deleteState = {
-            name: 'delete',
-            url: '/delete',
-            component: "deleteThermostat"
-        };
-        var createState = {
-            name: 'create',
-            url: '/create',
-            component: "createThermostat"
-        };
-        $stateProvider.state(homeState);
-        $stateProvider.state(dashboardState);
-        $stateProvider.state(editState);
-        $stateProvider.state(deleteState);
-        $stateProvider.state(createState);
+        var state = [
+            {
+                name: 'home',
+                url: '/',
+                component: "getAllThermostats"
+            },
+            {
+                name: 'dashboard',
+                url: '/thermostat',
+                component: "getThermostat"
+            },
+            {
+                name: 'edit',
+                url: '/edit',
+                component: "updateThermostat"
+            },
+            {
+                name: 'delete',
+                url: '/delete',
+                component: "deleteThermostat"
+            },
+            {
+                name: 'create',
+                url: '/create',
+                component: "createThermostat"
+            },
+            // {
+            //     name: 'course',
+            //     url: '/course/{courseId}',
+            //     resolve: {
+            //         courseId: function ($stateParams) {
+            //             return $stateParams.courseId;
+            //         }
+            //     },
+            //     template: '<course course-id="$resolve.courseId"></course>'
+            // },
+            {
+                name: 'dashboard.thermostat',
+                url: '/{thermostatId}',
+                component: "getThermostat",
+                resolve: {
+                    thermostat: function ($transition$) {
+                        return $transition$.params().thermostatId;
+                    }
+                }
+            }
+        ];
+        state.forEach(function (state) {
+            $stateProvider.state(state);
+        });
     });
 })(app || (app = {}));
