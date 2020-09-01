@@ -6,10 +6,6 @@ var app;
         var HomeController = /** @class */ (function () {
             function HomeController() {
             }
-            HomeController.prototype.$onInit = function () {
-                this.thermostatId = "200";
-                console.log("test");
-            };
             return HomeController;
         }());
         var HomeComponent = /** @class */ (function () {
