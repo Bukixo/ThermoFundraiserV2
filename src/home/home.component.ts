@@ -12,10 +12,10 @@ namespace app.home {
 
         }
 
-        public $onInit(): void {
-            this.thermostatId = "200";
-            console.log("test");
-        }
+        // public $onInit(): void {
+        //     this.thermostatId = "200";
+        //     console.log("test");
+        // }
 
     }
     class HomeComponent implements ng.IComponentOptions {
