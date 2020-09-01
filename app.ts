@@ -51,11 +51,12 @@ namespace app {
             {
                 name: 'dashboard.thermostat',
                 url: '/{thermostatId}',
-                component: "getThermostat",
+                // component: "getThermostat",
                 resolve: {
                     thermostat: function ($transition$: any): any {
                         return $transition$.params().thermostatId;
-                    }
+                    },
+                template: '<home thermostat-id="$resolve.thermostatId"></home>'
                 }
             }
 

@@ -48,11 +48,12 @@ var app;
             {
                 name: 'dashboard.thermostat',
                 url: '/{thermostatId}',
-                component: "getThermostat",
+                // component: "getThermostat",
                 resolve: {
                     thermostat: function ($transition$) {
                         return $transition$.params().thermostatId;
-                    }
+                    },
+                    template: '<home thermostat-id="$resolve.thermostatId"></home>'
                 }
             }
         ];
