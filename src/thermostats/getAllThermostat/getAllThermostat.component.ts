@@ -13,18 +13,17 @@ namespace app.crud.getAllThermostatComponent {
 
         public $onInit(): void {
             this.thermostatId = "200";
-            console.log("test");
+            console.log(this.thermostatId);
+
         }
 
     }
 
     class GetAllThermostats implements ng.IComponentOptions {
-        public bindings: any;
         public templateUrl: string;
         public controller: any;
 
         constructor() {
-            this.bindings = '<';
             this.templateUrl = "src/thermostats/getAllThermostat/getAllThermostat.component.html";
             this.controller = GetAllThermostatsController
         }

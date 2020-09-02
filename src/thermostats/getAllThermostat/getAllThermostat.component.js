@@ -9,13 +9,12 @@ var app;
                 }
                 GetAllThermostatsController.prototype.$onInit = function () {
                     this.thermostatId = "200";
-                    console.log("test");
+                    console.log(this.thermostatId);
                 };
                 return GetAllThermostatsController;
             }());
             var GetAllThermostats = /** @class */ (function () {
                 function GetAllThermostats() {
-                    this.bindings = '<';
                     this.templateUrl = "src/thermostats/getAllThermostat/getAllThermostat.component.html";
                     this.controller = GetAllThermostatsController;
                 }

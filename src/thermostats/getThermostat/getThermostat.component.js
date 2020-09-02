@@ -4,9 +4,18 @@ var app;
     (function (crud) {
         var getThermostatComponent;
         (function (getThermostatComponent) {
+            var GetThermostatController = /** @class */ (function () {
+                function GetThermostatController() {
+                }
+                return GetThermostatController;
+            }());
             var GetThermostat = /** @class */ (function () {
                 function GetThermostat() {
+                    this.bindings = {
+                        thermostatId: "<"
+                    };
                     this.templateUrl = "src/thermostats/getThermostat/getThermostat.component.html";
+                    this.controller = GetThermostatController;
                 }
                 return GetThermostat;
             }());

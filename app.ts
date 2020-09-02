@@ -39,27 +39,26 @@ namespace app {
                 component: "createThermostat"
             },
             // {
-            //     name: 'course',
-            //     url: '/course/{courseId}',
+            //     name: 'dashboard',
+            //     url: '/{thermostatId}',
+            //     // component: "getThermostat",
             //     resolve: {
-            //         courseId: function ($stateParams) {
-            //             return $stateParams.courseId;
-            //         }
-            //     },
-            //     template: '<course course-id="$resolve.courseId"></course>'
+            //         thermostat: function ($transition$: any): any {
+            //             return $transition$.params().thermostatId;
+            //         },
+            //     template: '<home thermostat-id="$resolve.thermostatId"></home>'
+            //     }
             // },
             {
-                name: 'dashboard.thermostat',
-                url: '/{thermostatId}',
-                // component: "getThermostat",
+                name: 'getThermostat',
+                url: '/thermostat/{thermostatId}',
+                component: "getThermostat",
                 resolve: {
-                    thermostat: function ($transition$: any): any {
+                    thermostatId: function ($transition$: any): any {
                         return $transition$.params().thermostatId;
-                    },
-                template: '<home thermostat-id="$resolve.thermostatId"></home>'
+                    }
                 }
             }
-
         ]
 
         state.forEach(state => {

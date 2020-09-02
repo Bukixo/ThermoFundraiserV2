@@ -10,7 +10,6 @@ var app;
         }());
         var HomeComponent = /** @class */ (function () {
             function HomeComponent() {
-                this.bindings = '<';
                 this.templateUrl = "src/home/home.component.html";
                 this.controller = HomeController;
             }
