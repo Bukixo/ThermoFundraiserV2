@@ -1,11 +1,11 @@
 namespace app.domain {
-    
+
     export interface IThermostat {
         thermostatId: number;
+        imageUrl: string;
         name: string;
         deadline: Date;
-        creationDate: Date;
-        goalDate: Date;
+        creationDate: string;
         currentCapital: number;
         capitalGoal: number;
         remainingCapital: number; //will be readonly as it's based current and goal capital
@@ -14,10 +14,10 @@ namespace app.domain {
     export class Thermostat implements IThermostat {
         constructor(
             public thermostatId: number,
+            public imageUrl: string,
             public name: string,
             public deadline: Date,
-            public creationDate: Date,
-            public goalDate: Date,
+            public creationDate: string,
             public currentCapital: number,
             public capitalGoal: number,
             public remainingCapital: number
