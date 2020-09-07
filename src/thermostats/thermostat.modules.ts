@@ -6,6 +6,6 @@ namespace app.crud {
         "app.crud.deleteThermostatComponent",
         "app.crud.updateThermostatComponent",
         "app.crud.getThermostatComponent",
-        "app.crud.getAllThermostatsComponent"
+        "app.crud.listAllThermostatsComponent"
     ])
 }

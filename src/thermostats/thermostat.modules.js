@@ -7,7 +7,7 @@ var app;
             "app.crud.deleteThermostatComponent",
             "app.crud.updateThermostatComponent",
             "app.crud.getThermostatComponent",
-            "app.crud.getAllThermostatsComponent"
+            "app.crud.listAllThermostatsComponent"
         ]);
     })(crud = app.crud || (app.crud = {}));
 })(app || (app = {}));
