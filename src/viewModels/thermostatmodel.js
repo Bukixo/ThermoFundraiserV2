@@ -4,6 +4,7 @@ var app;
     (function (domain) {
         var Thermostat = /** @class */ (function () {
             function Thermostat(thermostatId, imageUrl, name, deadline, creationDate, currentCapital, capitalGoal, remainingCapital) {
+                if (remainingCapital === void 0) { remainingCapital = capitalGoal + currentCapital; }
                 this.thermostatId = thermostatId;
                 this.imageUrl = imageUrl;
                 this.name = name;

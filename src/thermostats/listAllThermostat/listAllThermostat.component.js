@@ -6,6 +6,7 @@ var app;
         (function (listAllThermostatComponent) {
             "use strict";
             var ListAllThermostatsController = /** @class */ (function () {
+
                 function ListAllThermostatsController() {
                 }
                 ;
@@ -17,38 +18,43 @@ var app;
                             "name": "nigeria",
                             "deadline": new Date(2021, 10, 20),
                             "creationDate": new Date().toLocaleDateString(),
-                            "capitalGoal": 2000,
+                            "capitalGoal": 10,
                             "currentCapital": 50,
-                            "remainingCapital": this.calculateRemainingCapital("capitalGoal", "currentCpital")
+                            "remainingCapital": 40
+                        },
+                        {
+                            "thermostatId": 2,
+                            "imageUrl": "https://i.pinimg.com/564x/8e/74/f3/8e74f3b2ae463bd38b356a81c089b44c.jpg",
+                            "name": "teeth whitening",
+                            "deadline": new Date(2020, 12, 20),
+                            "creationDate": new Date().toLocaleDateString(),
+                            "capitalGoal": 500,
+                            "currentCapital": 35,
+                            "remainingCapital": 0
+                        },
+                        {
+                            "thermostatId": 2,
+                            "imageUrl": "https://i.pinimg.com/564x/34/11/c1/3411c1149a31de5d2c7d45547dabf35f.jpg",
+                            "name": "YSL Bag",
+                            "deadline": new Date(2020, 12, 20),
+                            "creationDate": new Date().toLocaleDateString(),
+                            "capitalGoal": 550,
+                            "currentCapital": 70,
+                            "remainingCapital": 0
                         }
-                        // {
-                        //     "thermostatId" : 2,
-                        //     "imageUrl": "https://i.pinimg.com/564x/8e/74/f3/8e74f3b2ae463bd38b356a81c089b44c.jpg",
-                        //     "name" : "teeth whitening",
-                        //     "deadline" : new Date(2020, 12, 20),
-                        //     "creationDate": new Date().toLocaleDateString(),
-                        //     "capitalGoal": 500,
-                        //     "currentCapital": 35,
-                        //     "remainingCapital": this.calculateRemainingCapital("capitalGoal", "currentCpital")
-                        // },
-                        // {
-                        //     "thermostatId" : 2,
-                        //     "imageUrl": "https://i.pinimg.com/564x/34/11/c1/3411c1149a31de5d2c7d45547dabf35f.jpg",
-                        //     "name" : "YSL Bag",
-                        //     "deadline" : new Date(2020, 12, 20),
-                        //     "creationDate": new Date().toLocaleDateString(),
-                        //     "capitalGoal": 500,
-                        //     "currentCapital": 35,
-                        //     "remainingCapital": this.calculateRemainingCapital("capitalGoal", "currentCpital")
-                        // }
                     ];
                 };
-                ListAllThermostatsController.prototype.calculateRemainingCapital = function (capitalGoal, currentCapital) {
-                    return this.remainingCapital = capitalGoal - currentCapital;
+                ListAllThermostatsController.prototype.calculateRemainingValue = function () {
+                    this.thermostats.forEach(function (thermostat) {
+                        var remainingValue = thermostat.capitalGoal - thermostat.currentCapital;
+                        thermostat.remainingCapital = remainingValue,
+                            console.log("test", thermostat);
+                    });
                 };
                 ListAllThermostatsController.prototype.$onInit = function () {
                     this.getThermostats();
                     console.log("thermostat", this.thermostats);
+                    this.calculateRemainingValue();
                 };
                 return ListAllThermostatsController;
             }());

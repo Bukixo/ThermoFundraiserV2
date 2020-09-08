@@ -21,8 +21,7 @@ namespace app.domain {
             public currentCapital: number,
             public capitalGoal: number,
             public remainingCapital: number
-            ) {
-        }
+            ) {}
 
     }
 }
