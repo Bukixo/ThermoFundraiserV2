@@ -12,6 +12,7 @@
     "angular": "^1.8.0",
     "bootstrap": "^4.5.2",
     "jquery": "^3.5.1",
+    "json-server": "^0.16.1",
     "tsd": "^0.13.1"
   },
   "devDependencies": {
