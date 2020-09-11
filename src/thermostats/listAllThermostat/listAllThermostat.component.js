@@ -6,56 +6,29 @@ var app;
         (function (listAllThermostatComponent) {
             "use strict";
             var ListAllThermostatsController = /** @class */ (function () {
-
-                function ListAllThermostatsController() {
+                function ListAllThermostatsController(dataService) {
+                    this.dataService = dataService;
                 }
-                ;
-                ListAllThermostatsController.prototype.getThermostats = function () {
-                    this.thermostats = [
-                        {
-                            "thermostatId": 1,
-                            "imageUrl": "https://i.pinimg.com/564x/56/f7/0a/56f70aca3170062c6f5e22d834c3f3fd.jpg",
-                            "name": "nigeria",
-                            "deadline": new Date(2021, 10, 20),
-                            "creationDate": new Date().toLocaleDateString(),
-                            "capitalGoal": 10,
-                            "currentCapital": 50,
-                            "remainingCapital": 40
-                        },
-                        {
-                            "thermostatId": 2,
-                            "imageUrl": "https://i.pinimg.com/564x/8e/74/f3/8e74f3b2ae463bd38b356a81c089b44c.jpg",
-                            "name": "teeth whitening",
-                            "deadline": new Date(2020, 12, 20),
-                            "creationDate": new Date().toLocaleDateString(),
-                            "capitalGoal": 500,
-                            "currentCapital": 35,
-                            "remainingCapital": 0
-                        },
-                        {
-                            "thermostatId": 2,
-                            "imageUrl": "https://i.pinimg.com/564x/34/11/c1/3411c1149a31de5d2c7d45547dabf35f.jpg",
-                            "name": "YSL Bag",
-                            "deadline": new Date(2020, 12, 20),
-                            "creationDate": new Date().toLocaleDateString(),
-                            "capitalGoal": 550,
-                            "currentCapital": 70,
-                            "remainingCapital": 0
-                        }
-                    ];
-                };
-                ListAllThermostatsController.prototype.calculateRemainingValue = function () {
-                    this.thermostats.forEach(function (thermostat) {
-                        var remainingValue = thermostat.capitalGoal - thermostat.currentCapital;
-                        thermostat.remainingCapital = remainingValue,
-                            console.log("test", thermostat);
-                    });
-                };
                 ListAllThermostatsController.prototype.$onInit = function () {
                     this.getThermostats();
-                    console.log("thermostat", this.thermostats);
-                    this.calculateRemainingValue();
                 };
+                ListAllThermostatsController.prototype.getThermostats = function () {
+                    var _this = this;
+                    this.dataService.getAllThermos().then(function (data) {
+                        _this.thermostats = data;
+                        _this.calculateRemainingValue(_this.thermostats);
+                        console.log("data", data);
+                        console.log("remaining values", _this.thermostats);
+                    });
+                };
+                ListAllThermostatsController.prototype.calculateRemainingValue = function (thermo) {
+                    console.log("thermostat", this.thermostats);
+                    thermo.forEach(function (thermostat) {
+                        var remainingValue = thermostat.capitalGoal - thermostat.currentCapital;
+                        thermostat.remainingCapital = remainingValue;
+                    });
+                };
+                ListAllThermostatsController.$inject = ["dataService"];
                 return ListAllThermostatsController;
             }());
             var ListAllThermostatsComponent = /** @class */ (function () {

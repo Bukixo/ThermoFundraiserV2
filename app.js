@@ -1,7 +1,7 @@
 var app;
 (function (app) {
     "use strict";
-    angular.module("App", [
+    var appModule = angular.module("App", [
         "app.home",
         "app.navbar",
         "app.footer",
