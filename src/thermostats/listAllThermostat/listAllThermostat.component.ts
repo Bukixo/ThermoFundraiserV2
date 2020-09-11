@@ -9,10 +9,10 @@ namespace app.crud.listAllThermostatComponent {
     class ListAllThermostatsController implements IListAllThermostat {
 
         public thermostats: app.domain.IThermostat[];
-        static $inject = ["dataService"];
+        static $inject = ["listAllThermostatsService"];
 
         constructor(
-            public dataService: app.services.DataService
+            public listAllThermostatsService: app.repositories.ListAllThermostatsService
         ) {
         }
 
@@ -21,7 +21,7 @@ namespace app.crud.listAllThermostatComponent {
         }
 
         public getThermostats(): void {
-            this.dataService.getAllThermos().then((data) => {
+            this.listAllThermostatsService.getAllThermostats().then((data) => {
                 this.thermostats = data;
                 this.calculateRemainingValue(this.thermostats);
             })
