@@ -7,6 +7,7 @@ namespace app.crud {
         "app.crud.updateThermostatComponent",
         "app.crud.getThermostatComponent",
         "app.crud.listAllThermostatsComponent",
-        "app.repositories"
+        "app.repositories",
+        "ui.bootstrap"
     ])
 }
