@@ -6,15 +6,15 @@ var app;
         (function (listAllThermostatComponent) {
             "use strict";
             var ListAllThermostatsController = /** @class */ (function () {
-                function ListAllThermostatsController(listAllThermostatsService) {
-                    this.listAllThermostatsService = listAllThermostatsService;
+                function ListAllThermostatsController(dataAccessService) {
+                    this.dataAccessService = dataAccessService;
                 }
                 ListAllThermostatsController.prototype.$onInit = function () {
                     this.getThermostats();
                 };
                 ListAllThermostatsController.prototype.getThermostats = function () {
                     var _this = this;
-                    this.listAllThermostatsService.getAllThermostats().then(function (data) {
+                    this.dataAccessService.getAllThermostats().then(function (data) {
                         _this.thermostats = data;
                         _this.calculateRemainingValue(_this.thermostats);
                     });
@@ -26,7 +26,7 @@ var app;
                         thermostat.remainingCapital = remainingValue;
                     });
                 };
-                ListAllThermostatsController.$inject = ["listAllThermostatsService"];
+                ListAllThermostatsController.$inject = ["dataAccessService"];
                 return ListAllThermostatsController;
             }());
             var ListAllThermostatsComponent = /** @class */ (function () {
