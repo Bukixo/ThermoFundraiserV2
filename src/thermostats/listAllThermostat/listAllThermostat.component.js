@@ -6,17 +6,15 @@ var app;
         (function (listAllThermostatComponent) {
             "use strict";
             var ListAllThermostatsController = /** @class */ (function () {
-                function ListAllThermostatsController(listAllThermostatsService, $uibModal, $scope) {
-                    this.listAllThermostatsService = listAllThermostatsService;
-                    this.$uibModal = $uibModal;
-                    this.$scope = $scope;
+                function ListAllThermostatsController(dataAccessService) {
+                    this.dataAccessService = dataAccessService;
                 }
                 ListAllThermostatsController.prototype.$onInit = function () {
                     this.getThermostats();
                 };
                 ListAllThermostatsController.prototype.getThermostats = function () {
                     var _this = this;
-                    this.listAllThermostatsService.getAllThermostats().then(function (data) {
+                    this.dataAccessService.getAllThermostats().then(function (data) {
                         _this.thermostats = data;
                         _this.calculateRemainingValue(_this.thermostats);
                     });
@@ -28,17 +26,7 @@ var app;
                         thermostat.remainingCapital = remainingValue;
                     });
                 };
-                ListAllThermostatsController.prototype.openModalForCreatingThermostat = function () {
-                    console.log("open modal");
-                    this.modalInstance = this.$uibModal.open({
-                        // templateUrl: "src/thermostats/createThermostat/createThermostat.component.html",
-                        size: "md",
-                        component: "createThermostat"
-                    });
-                    // modalInstance.result.then(() => {
-                    // });
-                };
-                ListAllThermostatsController.$inject = ["listAllThermostatsService", "$uibModal", "$scope"];
+                ListAllThermostatsController.$inject = ["dataAccessService"];
                 return ListAllThermostatsController;
             }());
             var ListAllThermostatsComponent = /** @class */ (function () {

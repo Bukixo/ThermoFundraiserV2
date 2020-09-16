@@ -7,14 +7,11 @@ namespace app.crud.listAllThermostatComponent {
     }
 
     class ListAllThermostatsController implements IListAllThermostat {
-        public static $inject = ["listAllThermostatsService", "$uibModal", "$scope"];
+        static $inject = ["dataAccessService"];
         public thermostats: app.domain.IThermostat[];
-        public modalInstance: any;
 
         constructor(
-            public listAllThermostatsService: app.repositories.ListAllThermostatsService,
-            public $uibModal: any,
-            private $scope: ng.IScope
+            public dataAccessService: app.repositories.DataAccessService
         ) {
         }
 
@@ -23,7 +20,7 @@ namespace app.crud.listAllThermostatComponent {
         }
 
         public getThermostats(): void {
-            this.listAllThermostatsService.getAllThermostats().then((data) => {
+            this.dataAccessService.getAllThermostats().then((data) => {
                 this.thermostats = data;
                 this.calculateRemainingValue(this.thermostats);
             })
@@ -38,17 +35,17 @@ namespace app.crud.listAllThermostatComponent {
             )
         }
 
-        public openModalForCreatingThermostat() {
-            console.log("open modal");
-            this.modalInstance = this.$uibModal.open({
-                // templateUrl: "src/thermostats/createThermostat/createThermostat.component.html",
-                size: "md",
-                component: "createThermostat"
-            });
+        // public openModalForCreatingThermostat() {
+        //     console.log("open modal");
+        //     this.modalInstance = this.$uibModal.open({
+        //         // templateUrl: "src/thermostats/createThermostat/createThermostat.component.html",
+        //         size: "md",
+        //         component: "createThermostat"
+        //     });
 
-            // modalInstance.result.then(() => {
-            // });
-        }
+        //     // modalInstance.result.then(() => {
+        //     // });
+        // }
 
     }
 
