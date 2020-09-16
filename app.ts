@@ -16,7 +16,7 @@ namespace app {
             {
                 name: 'home',
                 url: '/',
-                component: "getAllThermostats"
+                component: "listAllThermostats"
             },
             {
                 name: 'dashboard',

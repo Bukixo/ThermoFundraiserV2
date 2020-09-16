@@ -24,7 +24,7 @@ namespace app.crud.getAllThermostatComponent {
         public controller: any;
 
         constructor() {
-            this.templateUrl = "src/thermostats/getAllThermostat/getAllThermostat.component.html";
+            this.templateUrl = "src/thermostats/listAllThermostat/listAllThermostat.component.html";
             this.controller = GetAllThermostatsController
         }
 
