@@ -16,6 +16,14 @@ var app;
                     .then(this.repositoryHelper.success)
                     .catch(this.repositoryHelper.fail);
             };
+            DataAccessService.prototype.getThermostat = function (thermostatId) {
+                return this.repositoryHelper.$http({
+                    method: "GET",
+                    url: "https://my-json-server.typicode.com/Bukixo/thermostats/thermostats/" + thermostatId
+                })
+                    .then(this.repositoryHelper.success)
+                    .catch(this.repositoryHelper.fail);
+            };
             DataAccessService.inject = ["repositoryHelper"];
             return DataAccessService;
         }());

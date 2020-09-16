@@ -18,11 +18,11 @@ namespace app {
                 url: '/',
                 component: "listAllThermostats"
             },
-            {
-                name: 'dashboard',
-                url: '/thermostat',
-                component: "getThermostat"
-            },
+            // {
+            //     name: 'dashboard',
+            //     url: '/thermostat',
+            //     component: "getThermostat"
+            // },
             {
                 name: 'edit',
                 url: '/edit',
@@ -49,16 +49,16 @@ namespace app {
             //     template: '<home thermostat-id="$resolve.thermostatId"></home>'
             //     }
             // },
-            {
-                name: 'getThermostat',
-                url: '/thermostat/{thermostatId}',
-                component: "getThermostat",
-                resolve: {
-                    thermostatId: function ($transition$: any): any {
-                        return $transition$.params().thermostatId;
-                    }
-                }
-            }
+            // {
+            //     name: 'getThermostat',
+            //     url: '/thermostat/{thermostatId}',
+            //     component: "getThermostat",
+            //     resolve: {
+            //         thermostatId: function (dataService: app.repositories.DataAccessService, $transition$: any): any {
+            //             return dataService.getThermostat($transition$.params().thermostatId);
+            //         }
+            //     }
+            // }
         ]
 
         state.forEach(state => {

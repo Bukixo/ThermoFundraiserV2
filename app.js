@@ -13,13 +13,13 @@ var app;
             {
                 name: 'home',
                 url: '/',
-                component: "getAllThermostats"
+                component: "listAllThermostats"
             },
-            {
-                name: 'dashboard',
-                url: '/thermostat',
-                component: "getThermostat"
-            },
+            // {
+            //     name: 'dashboard',
+            //     url: '/thermostat',
+            //     component: "getThermostat"
+            // },
             {
                 name: 'edit',
                 url: '/edit',
@@ -35,27 +35,6 @@ var app;
                 url: '/create',
                 component: "createThermostat"
             },
-            // {
-            //     name: 'dashboard',
-            //     url: '/{thermostatId}',
-            //     // component: "getThermostat",
-            //     resolve: {
-            //         thermostat: function ($transition$: any): any {
-            //             return $transition$.params().thermostatId;
-            //         },
-            //     template: '<home thermostat-id="$resolve.thermostatId"></home>'
-            //     }
-            // },
-            {
-                name: 'getThermostat',
-                url: '/thermostat/{thermostatId}',
-                component: "getThermostat",
-                resolve: {
-                    thermostatId: function ($transition$) {
-                        return $transition$.params().thermostatId;
-                    }
-                }
-            }
         ];
         state.forEach(function (state) {
             $stateProvider.state(state);

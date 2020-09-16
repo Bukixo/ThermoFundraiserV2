@@ -3,15 +3,9 @@ var app;
     var home;
     (function (home) {
         "use strict";
-        var HomeController = /** @class */ (function () {
-            function HomeController() {
-            }
-            return HomeController;
-        }());
         var HomeComponent = /** @class */ (function () {
             function HomeComponent() {
                 this.templateUrl = "src/home/home.component.html";
-                this.controller = HomeController;
             }
             return HomeComponent;
         }());
