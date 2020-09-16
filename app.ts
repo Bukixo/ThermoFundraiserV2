@@ -65,7 +65,4 @@ namespace app {
             $stateProvider.state(state);
         });
     });
-
-
-
 }

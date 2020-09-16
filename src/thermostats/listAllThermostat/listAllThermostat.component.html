@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-12 border crud-component">
+        <div class="row">
+            <div class="col-md-4 border ng-repeat="ng-repeat="thermostat in $ctrl.thermostats">
+                <a ui-sref-active="active" ui-sref="dashboard.thermostat({ thermostatId: home.thermostat.id })">
+                    <div class="col-md-6">
+                        <img
+                         ng-src="{{thermostat.imageUrl}}"
+                         style="width:200px;"
+                         title="{{thermostat.name}}">
+                    </div>
+                    <div class="col-md-12">Name: {{thermostat.name}}</div>
+                    <div class="col-md-12">Goal: {{thermostat.capitalGoal}}</div>
+                    <div class="col-md-12">current: {{thermostat.currentCapital}}</div>
+                    <div class="col-md-12">How much Left: {{thermostat.remainingCapital}}</div>
+                </a>
+            </div>
+          </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 border offset-md-9">
+        <button ui-sref="create" ui-sref-active="active">Add New</button>
+    </div>
+</div>
