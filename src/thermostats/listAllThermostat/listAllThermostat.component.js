@@ -6,7 +6,6 @@ var app;
         (function (listAllThermostatComponent) {
             "use strict";
             var ListAllThermostatsController = /** @class */ (function () {
-                // public apiUrl: string;
                 function ListAllThermostatsController($http, $q) {
                     var _this = this;
                     this.$http = $http;
@@ -19,7 +18,6 @@ var app;
                     };
                     this.success = function (response) {
                         console.log("response", response.data);
-                        // return response.data;
                         _this.thermostats = response.data;
                         _this.calculateRemainingValue(_this.thermostats);
                     };
@@ -35,12 +33,6 @@ var app;
                 ListAllThermostatsController.prototype.$onInit = function () {
                     this.getAllThermos();
                 };
-                // public getThermostats(): void {
-                //     this.dataService.getAllThermos().then((data) => {
-                //         this.thermostats = data;
-                //         this.calculateRemainingValue(this.thermostats);
-                //     })
-                // }
                 ListAllThermostatsController.prototype.calculateRemainingValue = function (thermo) {
                     console.log("thermostat", this.thermostats);
                     thermo.forEach(function (thermostat) {
@@ -48,7 +40,6 @@ var app;
                         thermostat.remainingCapital = remainingValue;
                     });
                 };
-                // static $inject = ["dataService"];
                 ListAllThermostatsController.inject = ["$http", "q"];
                 return ListAllThermostatsController;
             }());
