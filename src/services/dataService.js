@@ -1,39 +1,39 @@
-var app;
-(function (app) {
-    var services;
-    (function (services) {
-        "use strict";
-        var DataService = /** @class */ (function () {
-            // public apiUrl: string;
-            function DataService($http, $q) {
-                var _this = this;
-                this.$http = $http;
-                this.$q = $q;
-                this.fail = function (error) {
-                    var msg = error.data ? error.data.Message : "Repository operation failed";
-                    var reason = "operation failed";
-                    console.log(msg, reason);
-                    return _this.$q.reject(msg);
-                };
-                this.success = function (response) {
-                    console.log("response", response.data);
-                    return response.data;
-                };
-            }
-            DataService.prototype.getAllThermos = function () {
-                return this.$http({
-                    method: "GET",
-                    url: "https://my-json-server.typicode.com/Bukixo/thermostats/thermostats"
-                })
-                    .then(this.success)
-                    .catch(this.fail);
-            };
-            DataService.inject = ["$http", "q"];
-            return DataService;
-        }());
-        services.DataService = DataService;
-        angular
-            .module("app.services")
-            .service("dataService", DataService);
-    })(services = app.services || (app.services = {}));
-})(app || (app = {}));
+// namespace app.services {
+//     "use strict";
+//     export interface IDataService {
+//         $http: ng.IHttpService;
+//         fail: (error: any) => {};
+//         success: (response: any) => {};
+//         // searchCriteriaQuery: (searchCriteria: any) => string;
+//     }
+//     export class DataService implements IDataService {
+//         public static inject: string[] = ["$http", "q"]
+//         // public apiUrl: string;
+//         constructor(
+//             public $http: ng.IHttpService,
+//             protected $q: ng.IQService
+//         ) {
+//         }
+//         public fail: (error: any) => any = (error) => {
+//             let msg = error.data ? error.data.Message : "Repository operation failed";
+//             let reason: string = "operation failed";
+//             console.log(msg, reason);
+//             return this.$q.reject(msg);
+//         }
+//         public success: (response: any) => any = (response) => {
+//             console.log("response", response.data);
+//             return response.data;
+//         }
+//         public getAllThermos(): ng.IPromise<app.domain.IThermostat[]> {
+//             return this.$http({
+//                 method: "GET",
+//                 url: "https://my-json-server.typicode.com/Bukixo/thermostats/thermostats"
+//             })
+//             .then(this.success)
+//             .catch(this.fail);
+//         }
+//     }
+//     angular
+//         .module("app.services")
+//         .service("dataService", DataService);
+// }

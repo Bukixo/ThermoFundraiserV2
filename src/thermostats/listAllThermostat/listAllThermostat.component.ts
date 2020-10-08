@@ -3,28 +3,49 @@ namespace app.crud.listAllThermostatComponent {
 
     interface IListAllThermostat {
         thermostats: app.domain.IThermostat[];
+        $http: ng.IHttpService;
+        fail: (error: any) => {};
+        success: (response: any) => {};
 
     }
 
     class ListAllThermostatsController implements IListAllThermostat {
 
         public thermostats: app.domain.IThermostat[];
-        static $inject = ["dataService"];
+
+        public static inject: string[] = ["$http", "q"]
 
         constructor(
-            public dataService: app.services.DataService
+            public $http: ng.IHttpService,
+            protected $q: ng.IQService
         ) {
+        }
+        public fail: (error: any) => any = (error) => {
+            let msg = error.data ? error.data.Message : "Repository operation failed";
+            let reason: string = "operation failed";
+
+            console.log(msg, reason);
+
+            return this.$q.reject(msg);
+        }
+
+        public success: (response: any) => any = (response) => {
+            console.log("response", response.data);
+            this.thermostats = response.data;
+                this.calculateRemainingValue(this.thermostats);
+        }
+
+        public getAllThermos(): ng.IPromise<app.domain.IThermostat[]> {
+            return this.$http({
+                method: "GET",
+                url: "https://my-json-server.typicode.com/Bukixo/thermostats/thermostats"
+            })
+            .then(this.success)
+            .catch(this.fail);
         }
 
         public $onInit(): void {
-            this.getThermostats();
-        }
-
-        public getThermostats(): void {
-            this.dataService.getAllThermos().then((data) => {
-                this.thermostats = data;
-                this.calculateRemainingValue(this.thermostats);
-            })
+            this.getAllThermos();
         }
 
         public calculateRemainingValue( thermo: app.domain.IThermostat[]) {
