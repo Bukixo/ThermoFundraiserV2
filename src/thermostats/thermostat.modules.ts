@@ -8,6 +8,6 @@ namespace app.crud {
         "app.crud.getThermostatComponent",
         "app.crud.listAllThermostatsComponent",
         "app.repositories",
-        "ui.bootstrap"
+        // "ui.bootstrap"
     ])
 }

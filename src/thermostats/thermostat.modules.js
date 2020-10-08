@@ -9,7 +9,7 @@ var app;
             "app.crud.getThermostatComponent",
             "app.crud.listAllThermostatsComponent",
             "app.repositories",
-            "ui.bootstrap"
+            // "ui.bootstrap"
         ]);
     })(crud = app.crud || (app.crud = {}));
 })(app || (app = {}));

@@ -8,7 +8,7 @@ var app;
             var ListAllThermostatsController = /** @class */ (function () {
                 function ListAllThermostatsController(listAllThermostatsService, $uibModal) {
                     this.listAllThermostatsService = listAllThermostatsService;
-                    this.$uibModal = $uibModal;
+                    // this.$uibModal = $uibModal;
                 }
                 ListAllThermostatsController.prototype.$onInit = function () {
                     this.getThermostats();
@@ -37,7 +37,7 @@ var app;
                     modalInstance.result.then(function () {
                     });
                 };
-                ListAllThermostatsController.$inject = ["listAllThermostatsService", "$uibModal", "$scope"];
+                ListAllThermostatsController.$inject = ["listAllThermostatsService", "$scope"];
                 return ListAllThermostatsController;
             }());
             var ListAllThermostatsComponent = /** @class */ (function () {
