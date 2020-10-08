@@ -6,9 +6,8 @@ var app;
         (function (listAllThermostatComponent) {
             "use strict";
             var ListAllThermostatsController = /** @class */ (function () {
-                function ListAllThermostatsController(listAllThermostatsService, $uibModal) {
+                function ListAllThermostatsController(listAllThermostatsService) {
                     this.listAllThermostatsService = listAllThermostatsService;
-                    // this.$uibModal = $uibModal;
                 }
                 ListAllThermostatsController.prototype.$onInit = function () {
                     this.getThermostats();
@@ -25,16 +24,6 @@ var app;
                     thermo.forEach(function (thermostat) {
                         var remainingValue = thermostat.capitalGoal - thermostat.currentCapital;
                         thermostat.remainingCapital = remainingValue;
-                    });
-                };
-                ListAllThermostatsController.prototype.openModalForCreatingThermostat = function () {
-                    console.log("open modal");
-                    var modalInstance = this.$uibModal.open({
-                        templateUrl: "src/thermostats/createThermostat/createThermostat.component.html",
-                        size: "md",
-                        scope: this.$scope
-                    });
-                    modalInstance.result.then(function () {
                     });
                 };
                 ListAllThermostatsController.$inject = ["listAllThermostatsService", "$scope"];

@@ -9,11 +9,10 @@ namespace app.crud.listAllThermostatComponent {
     class ListAllThermostatsController implements IListAllThermostat {
 
         public thermostats: app.domain.IThermostat[];
-        static $inject = ["listAllThermostatsService", "$uibModal", "$scope"];
+        static $inject = ["listAllThermostatsService", "$scope"];
 
         constructor(
-            public listAllThermostatsService: app.repositories.ListAllThermostatsService,
-            public $uibModal: any
+            public listAllThermostatsService: app.repositories.ListAllThermostatsService
         ) {
         }
 
@@ -35,18 +34,6 @@ namespace app.crud.listAllThermostatComponent {
                     thermostat.remainingCapital = remainingValue
                 }
             )
-        }
-
-        public openModalForCreatingThermostat() {
-            console.log("open modal");
-            let modalInstance = this.$uibModal.open({
-                templateUrl: "src/thermostats/createThermostat/createThermostat.component.html",
-                size: "md",
-                scope: this.$scope
-            });
-
-            modalInstance.result.then(() => {
-            });
         }
 
     }
